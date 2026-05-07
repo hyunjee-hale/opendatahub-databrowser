@@ -17,18 +17,34 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <template #body="{ item, index }">
       <div class="flex flex-wrap gap-8 md:flex-nowrap">
         <div class="basis-full md:order-1 md:basis-1/3">
-          <SubCategoryItem title="Room Name" :required="true">
+          <SubCategoryItem title="Id" :required="true">
+            <StringCell
+              :text="item.Id"
+              :editable="false"
+              :readonly="true"
+              @input="updateItem(index, { Id: $event.target.value })"
+            />
+          </SubCategoryItem>
+          <SubCategoryItem title="Shortname" :required="true">
             <StringCell
               :text="item.Shortname"
-              :editable="editable"
+              :editable="false"
+              :readonly="true"
               @input="updateItem(index, { Shortname: $event.target.value })"
             />
           </SubCategoryItem>
-          <SubCategoryItem title="Indoor" :required="true">
-            <ToggleTriStateCell
-              :text="item.Indoor"
+          <SubCategoryItem title="Title" :required="true">
+            <StringCell
+              :text="item.Title"
               :editable="editable"
-              @input="updateItem(index, { Indoor: $event.target.value })"
+              @input="updateItem(index, { Title: $event.target.value })"
+            />
+          </SubCategoryItem>
+          <SubCategoryItem title="Active" :required="true">
+            <ToggleTriStateCell
+              :enabled="booleanOrStringToBoolean(item.Active)"
+              :editable="editable"
+              @input="updateItem(index, { Active: $event.target.value })"
             />
           </SubCategoryItem>
           <SubCategoryItem title="SquareMeters">
@@ -40,16 +56,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
           </SubCategoryItem>
           <SubCategoryItem title="Capacity">
             <StringCell
-              :text="item.Capacity"
-              :editable="false"
-              @input="updateItem(index, { Capacity: $event.target.value })"
+              :text="item.MaxCapacity"
+              :editable="editable"       
+              @input="updateItem(index, { MaxCapacity: $event.target.value })"
             />
           </SubCategoryItem>
-          <SubCategoryItem title="SetupType">
+          <SubCategoryItem title="Placement">
             <StringCell
-              :text="item.SetupType"
-              :editable="false"
-              @input="updateItem(index, { SetupType: $event.target.value })"
+              :text="item.Placement"
+              :editable="editable"       
+              @input="updateItem(index, { Placement: $event.target.value })"
             />
           </SubCategoryItem>
         </div>
@@ -96,6 +112,7 @@ import { useInjectEditMode } from '../../utils/editList/actions/useEditMode';
 import EditListTab from '../../utils/editList/tab/EditListTab.vue';
 import StringCell from '../stringCell/StringCell.vue';
 import ToggleTriStateCell from '../toggleCell/ToggleTriStateCell.vue';
+import { booleanOrStringToBoolean } from '../../../../utils/convertType';
 import { RoomVenueEntry } from './types';
 
 defineProps<{ items: RoomVenueEntry[] }>();
