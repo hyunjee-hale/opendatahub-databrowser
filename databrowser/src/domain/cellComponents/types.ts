@@ -5,6 +5,7 @@
 export enum CellComponent {
   AdditionalPropertiesCell = 'AdditionalPropertiesCell',
   ArrayCell = 'ArrayCell',
+  ConcatCell = 'ConcatCell',
   ArrayEditableCell = 'ArrayEditableCell',
   ArrayLookupCell = 'ArrayLookupCell',
   ArrayTagsCell = 'ArrayTagsCell',

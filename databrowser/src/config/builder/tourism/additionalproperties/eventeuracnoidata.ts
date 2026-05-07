@@ -33,9 +33,7 @@ export const eventeuracnoidataCategory = (
             value_001: 'NOI',
             label_001: 'noi',
             value_002: 'EC',
-            label_002: 'eurac',
-            value_003: 'NOISE',
-            label_003: 'noise',
+            label_002: 'eurac',            
           },
         },
         {

@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     :items="props.items"
     :url="venueRoomUrl"
     key-selector="RoomDetails\.[0]\.Id"
-    label-selector="RoomDetails\.[0]\.Detail.{language}.Title"
+    label-selector="RoomDetails\.[0]\.Shortname"
     :unique="props.unique"
     :editable="props.editable"
     :hide-header="true"
@@ -51,7 +51,7 @@ const venueRoomUrl = computed(() => {
   const idFilter =
     venueIds.value.length > 0 ? `&idlist=${venueIds.value.join(',')}` : '';
   return withOdhBaseUrl(
-    `/v1/Venue?denormalize=true&fields=RoomDetails.[0].Id,RoomDetails.[0].Detail&pagesize=0${idFilter}`
+    `/v1/Venue?denormalize=true&fields=RoomDetails.[0].Id,RoomDetails.[0].Shortname&pagesize=0${idFilter}`
   );
 });
 

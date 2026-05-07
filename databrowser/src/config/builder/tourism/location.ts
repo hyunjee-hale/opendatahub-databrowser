@@ -178,68 +178,97 @@ export const locationCategoryDistrict = (): DetailElements => ({
   ],
 });
 
-export const locationTableCellsAll = (): PropertyConfig[] => [
-  {
-    title: 'Region',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.RegionInfo.Name.{language}' },
-  },
-  {
-    title: 'TourismAssociation',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.TvInfo.Name.{language}' },
-  },
-  {
-    title: 'Municipality',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.MunicipalityInfo.Name.{language}' },
-  },
-  {
-    title: 'District',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.DistrictInfo.Name.{language}' },
-  },
-];
+interface LocationTableCellsAllOptions {
+  showRegion?: boolean;
+  showTourismAssociation?: boolean;
+  showMunicipality?: boolean;
+  showDistrict?: boolean;
+}
 
-export const locationTableCellsStandard = (): PropertyConfig[] => [
-  {
-    title: 'Region',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.RegionInfo.Name.{language}' },
-  },
-  {
-    title: 'TourismAssociation',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.TvInfo.Name.{language}' },
-  },
-  {
-    title: 'Municipality',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.MunicipalityInfo.Name.{language}' },
-  },
-];
+export const locationTableCellsAll = ({
+  showRegion = true,
+  showTourismAssociation = true,
+  showMunicipality = true,
+  showDistrict = true,
+}: LocationTableCellsAllOptions = {}): PropertyConfig[] =>
+  [
+    showRegion && {
+      title: 'Region',
+      component: CellComponent.StringCell,
+      class: 'w-52',
+      objectMapping: { text: 'LocationInfo.RegionInfo.Name.{language}' },
+    },
+    showTourismAssociation && {
+      title: 'TourismAssociation',
+      component: CellComponent.StringCell,
+      class: 'w-52',
+      objectMapping: { text: 'LocationInfo.TvInfo.Name.{language}' },
+    },
+    showMunicipality && {
+      title: 'Municipality',
+      component: CellComponent.StringCell,
+      class: 'w-52',
+      objectMapping: { text: 'LocationInfo.MunicipalityInfo.Name.{language}' },
+    },
+    showDistrict && {
+      title: 'District',
+      component: CellComponent.StringCell,
+      class: 'w-52',
+      objectMapping: { text: 'LocationInfo.DistrictInfo.Name.{language}' },
+    },
+  ].filter(Boolean) as PropertyConfig[];
 
-export const locationTableCellsMinimal = (): PropertyConfig[] => [
-  {
-    title: 'Region',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.RegionInfo.Name.{language}' },
-  },
-  {
-    title: 'Municipality',
-    component: CellComponent.StringCell,
-    class: 'w-52',
-    objectMapping: { text: 'LocationInfo.MunicipalityInfo.Name.{language}' },
-  },
-];
+interface LocationTableCellsMergedOptions {
+  showRegion?: boolean;
+  showTourismAssociation?: boolean;
+  showMunicipality?: boolean;
+  showDistrict?: boolean;
+  separator?: string;
+}
+
+export const locationTableCellsMerged = ({
+  showRegion = true,
+  showTourismAssociation = false,
+  showMunicipality = true,
+  showDistrict = false,
+  separator,
+}: LocationTableCellsMergedOptions = {}): PropertyConfig[] => {
+  const fields: [boolean, string][] = [
+    [showRegion, 'LocationInfo.RegionInfo.Name.{language}'],
+    [showMunicipality, 'LocationInfo.MunicipalityInfo.Name.{language}'],
+    [showTourismAssociation, 'LocationInfo.TvInfo.Name.{language}'],
+    [showDistrict, 'LocationInfo.DistrictInfo.Name.{language}'],
+  ];
+
+  const enabledPaths = fields
+    .filter(([show]) => show)
+    .map(([, path]) => path as string);
+
+  if (enabledPaths.length === 0) {
+    return [];
+  }
+
+  const objectMapping = Object.fromEntries(
+    enabledPaths.map((path, i) => [`text${i + 1}`, path])
+  );
+
+  const filterPath =
+    enabledPaths.find((p) => p.includes('MunicipalityInfo')) ??
+    enabledPaths[0];
+
+  return [
+    {
+      title: 'Location',
+      component: CellComponent.ConcatCell,
+      class: 'w-52',
+      objectMapping,
+      params: {
+        filterPath,
+        ...(separator != null && { separator }),
+      },
+    },
+  ];
+};
 
 export const locationTableCellsReferencedMinimal = (): PropertyConfig[] => [
   {

@@ -12,6 +12,7 @@ import ArrayTagsCell from '../components/cells/arrayTagsCell/ArrayTagsCell.vue';
 import ArticleAdditionalInfoCell from '../components/cells/articleAdditionalInfoCell/ArticleAdditionalInfoCell.vue';
 import ArticleLinkInfoCell from '../components/cells/articleLinkInfoCell/ArticleLinkInfoCell.vue';
 import ArticleTypeCell from '../components/cells/articleTypeCell/ArticleTypeCell.vue';
+import ConcatCell from '../components/cells/concatCell/ConcatCell.vue';
 import CustomDataArrayCell from '../components/cells/customDataArrayCell/CustomDataArrayCell.vue';
 import DateCell from '../components/cells/dateCell/DateCell.vue';
 import DictionaryCell from '../components/cells/dictionaryCell/DictionaryCell.vue';
@@ -213,6 +214,7 @@ export const registeredComponents: readonly RegisteredComponent[] = [
     { supportsTableView: true },
   ],
   [CellComponent.StateCell, StateCell, { supportsTableView: true }],
+  [CellComponent.ConcatCell, ConcatCell, { supportsTableView: true }],
   [CellComponent.StringCell, StringCell, { supportsTableView: true }],
   [CellComponent.UrlCell, UrlCell, { supportsTableView: true }],
   [

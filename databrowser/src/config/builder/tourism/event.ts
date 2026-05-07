@@ -358,20 +358,20 @@ export const eventDateCategory = (): DetailElements => ({
                 component: CellComponent.DateCell,
                 objectMapping: { date: 'Begin' },
                 params: { type: 'time', format: 'HH:mm' },
-                class: 'w-24 md:w-28',
+                class: 'w-20 md:w-24',
               },
               {
                 title: 'End',
                 component: CellComponent.DateCell,
                 objectMapping: { date: 'End' },
                 params: { type: 'time', format: 'HH:mm' },
-                class: 'w-24 md:w-28',
+                class: 'w-20 md:w-24',
               },
               {
                 title: 'Active',
                 component: CellComponent.ToggleTriStateCell,
                 objectMapping: { enabled: 'Active' },
-                class: 'w-28 md:w-32',
+                class: 'w-44 md:w-48',
               },
               {
                 title: 'Venue Room',
