@@ -13,6 +13,7 @@ import {
   publishedOnTableCell,
   pushDataTableCell,
   locationTableCellsMinimal,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const venueListView: ListViewConfig = {
@@ -39,5 +40,6 @@ export const venueListView: ListViewConfig = {
     },
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };

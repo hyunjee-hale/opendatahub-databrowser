@@ -7,6 +7,7 @@ import {
   imageTableCell,
   languageTableCell,
   lastChangesTableCell,
+  lastSyncTableCell,
   logoTableCell,
   publishedOnTableCell,
   pushDataTableCell,
@@ -24,5 +25,6 @@ export const tourismAssociationListView: ListViewConfig = {
     sourceTableCell(),
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };

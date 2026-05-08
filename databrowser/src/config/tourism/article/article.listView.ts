@@ -12,6 +12,7 @@ import {
   titleTableCell,
   publishedOnTableCell,
   pushDataTableCell,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const articleListView: ListViewConfig = {
@@ -39,6 +40,7 @@ export const articleListView: ListViewConfig = {
     },
     languageTableCell(),
     lastChangesTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
     sourceTableCell(),
     {
       title: 'Source state',

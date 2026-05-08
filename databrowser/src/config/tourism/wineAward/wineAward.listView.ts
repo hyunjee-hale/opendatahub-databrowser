@@ -8,6 +8,7 @@ import {
   imageTableCell,
   languageTableCell,
   lastChangesTableCell,
+  lastSyncTableCell,
   publishedOnTableCell,
   pushDataTableCell,
   sourceTableCell,
@@ -72,5 +73,6 @@ export const wineAwardListView: ListViewConfig = {
     },
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };

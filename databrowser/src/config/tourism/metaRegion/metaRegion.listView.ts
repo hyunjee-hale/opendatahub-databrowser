@@ -7,6 +7,7 @@ import {
   imageTableCell,
   languageTableCell,
   lastChangesTableCell,
+  lastSyncTableCell,
   publishedOnTableCell,
   pushDataTableCell,
   sourceTableCell,
@@ -22,5 +23,6 @@ export const metaRegionListView: ListViewConfig = {
     sourceTableCell(),
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };
