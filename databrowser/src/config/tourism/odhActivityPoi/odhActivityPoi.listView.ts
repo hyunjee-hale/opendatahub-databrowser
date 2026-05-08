@@ -14,6 +14,7 @@ import {
   pushDataTableCell,
   sourceTableCell,
   titleTableCell,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const odhActivityPoiListView: ListViewConfig = {
@@ -45,6 +46,7 @@ export const odhActivityPoiListView: ListViewConfig = {
     //   },
     // },
     ...locationTableCellsMinimal(),
+    lastSyncTableCell(true),
     gpsDataShortTableCell(),
     {
       title: 'ODH Tags',
