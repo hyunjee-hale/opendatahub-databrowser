@@ -46,7 +46,7 @@ export const odhActivityPoiListView: ListViewConfig = {
     //   },
     // },
     ...locationTableCellsMinimal(),
-    lastSyncTableCell(true),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
     gpsDataShortTableCell(),
     {
       title: 'ODH Tags',
