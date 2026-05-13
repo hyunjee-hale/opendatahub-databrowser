@@ -27,14 +27,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
     <template #tableCols="{ item }">
       <TableCell>{{ item.Shortname }} </TableCell>
-      <TableCell>{{ item.Title }} </TableCell>
+      <TableCell>{{ item.Detail?.[language]?.Title }} </TableCell>
       <TableCell>
         <ToggleTriStateCell
           :enabled="booleanOrStringToBoolean(item.Active)"
           :editable="false"
         />
       </TableCell>
-      <TableCell>{{ item.SquareMeters }} </TableCell>
+      <TableCell>{{ item.VenueRoomProperties?.SquareMeters }} </TableCell>
       <TableCell>{{ item.MaxCapacity }} </TableCell>
       <TableCell>{{ item.Placement }} </TableCell>
       <TableCell>
@@ -51,9 +51,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import TableCell from '../../../../../components/table/TableCell.vue';
 import TableHeaderCell from '../../../../../components/table/TableHeaderCell.vue';
 import { booleanOrStringToBoolean } from '../../../../utils/convertType';
+import { useDatasetQueryStore } from '../../../../datasets/location/store/datasetQueryStore';
 import EditListAddButton from '../../utils/editList/EditListAddButton.vue';
 import { useInjectActionTriggers } from '../../utils/editList/actions/useActions';
 import EditListTable from '../../utils/editList/table/EditListTable.vue';
@@ -63,4 +65,6 @@ import { RoomVenueEntry } from './types';
 defineProps<{ items: RoomVenueEntry[] }>();
 
 const { addItem } = useInjectActionTriggers<RoomVenueEntry>();
+
+const language = computed(() => useDatasetQueryStore().handle('language').value ?? 'en');
 </script>

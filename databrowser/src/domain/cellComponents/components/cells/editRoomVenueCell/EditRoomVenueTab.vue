@@ -35,9 +35,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
           </SubCategoryItem>
           <SubCategoryItem title="Title" :required="true">
             <StringCell
-              :text="item.Title"
+              :text="item.Detail?.[language]?.Title"
               :editable="editable"
-              @input="updateItem(index, { Title: $event.target.value })"
+              @input="updateItem(index, { Detail: { ...(item.Detail ?? {}), [language]: { ...(item.Detail?.[language] ?? {}), Title: $event.target.value } } })"
             />
           </SubCategoryItem>
           <SubCategoryItem title="Active" :required="true">
@@ -49,23 +49,30 @@ SPDX-License-Identifier: AGPL-3.0-or-later
           </SubCategoryItem>
           <SubCategoryItem title="SquareMeters">
             <StringCell
-              :text="item.SquareMeters"
+              :text="item.VenueRoomProperties?.SquareMeters"
               :editable="editable"
-              @input="updateItem(index, { SquareMeters: $event.target.value })"
+              @input="updateItem(index, { VenueRoomProperties: { ...(item.VenueRoomProperties ?? {}), SquareMeters: $event.target.value } })"
             />
           </SubCategoryItem>
           <SubCategoryItem title="Capacity">
             <StringCell
               :text="item.MaxCapacity"
-              :editable="editable"       
+              :editable="editable"
               @input="updateItem(index, { MaxCapacity: $event.target.value })"
             />
           </SubCategoryItem>
           <SubCategoryItem title="Placement">
             <StringCell
               :text="item.Placement"
-              :editable="editable"       
+              :editable="editable"
               @input="updateItem(index, { Placement: $event.target.value })"
+            />
+          </SubCategoryItem>
+          <SubCategoryItem title="Mapping">
+            <MappingCell
+              :mapping="item.Mapping"
+              :editable="editable"
+              @update="updateItem(index, { Mapping: $event.value })"
             />
           </SubCategoryItem>
         </div>
@@ -110,9 +117,12 @@ import EditListAddButton from '../../utils/editList/EditListAddButton.vue';
 import { useInjectActionTriggers } from '../../utils/editList/actions/useActions';
 import { useInjectEditMode } from '../../utils/editList/actions/useEditMode';
 import EditListTab from '../../utils/editList/tab/EditListTab.vue';
+import MappingCell from '../mappingCell/MappingCell.vue';
 import StringCell from '../stringCell/StringCell.vue';
 import ToggleTriStateCell from '../toggleCell/ToggleTriStateCell.vue';
+import { computed } from 'vue';
 import { booleanOrStringToBoolean } from '../../../../utils/convertType';
+import { useDatasetQueryStore } from '../../../../datasets/location/store/datasetQueryStore';
 import { RoomVenueEntry } from './types';
 
 defineProps<{ items: RoomVenueEntry[] }>();
@@ -121,4 +131,6 @@ const { addItem, deleteItems, duplicateItem, updateItem } =
   useInjectActionTriggers<RoomVenueEntry>();
 
 const { editable } = useInjectEditMode();
+
+const language = computed(() => useDatasetQueryStore().handle('language').value ?? 'en');
 </script>
