@@ -10,7 +10,13 @@ import { useToolBoxStore } from '../../toolBox/toolBoxStore';
 import { useTableViewColsStore } from '../tableViewColsStore';
 import { Column } from '../types';
 
-const firstPropertyName = (objectMapping?: ObjectMapping) => {
+const firstPropertyName = (
+  objectMapping?: ObjectMapping,
+  params?: Record<string, string>
+) => {
+  if (params?.filterPath != null) {
+    return params.filterPath;
+  }
   const values = Object.values(objectMapping ?? {});
   return values.length === 1 ? values[0] : undefined;
 };
@@ -33,7 +39,7 @@ export const computeTableCols = (
       // Remove hidden elements from result
       .filter((element) => !element.hidden)
       .map<Column>((element) => {
-        const firstPropertyPath = firstPropertyName(element.objectMapping);
+        const firstPropertyPath = firstPropertyName(element.objectMapping, element.params);
 
         return {
           ...element,
