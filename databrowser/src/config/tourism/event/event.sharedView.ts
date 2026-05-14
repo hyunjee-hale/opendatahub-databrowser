@@ -123,7 +123,7 @@ export const eventSharedView = (): DetailViewConfig | EditViewConfig => ({
     additionalPropertiesCategory(),
     locationCategory(),
     gpsDataCategory(),
-    tagCategory('event'),
+    tagCategory('event', { withSourceFilter: true }),
     odhTagCategory('event'),
     licenseInfoCategory(),
     mappingCategory(),

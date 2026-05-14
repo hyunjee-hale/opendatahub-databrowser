@@ -52,6 +52,7 @@ export enum CellComponent {
   StateCell = 'StateCell',
   StringCell = 'StringCell',
   TagReferenceCell = 'TagReferenceCell',
+  TagReferenceCellSourceFiltered = 'TagReferenceCellSourceFiltered',
   UrlCell = 'UrlCell',
   VenueRoomDetailsCell = 'VenueRoomDetailsCell',
   StringTemplateCell = 'StringTemplateCell',
