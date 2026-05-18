@@ -11,7 +11,6 @@ import {
   sourceTableCell,
   titleTableCell,
   pushDataTableCell,
-  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const districtListView: ListViewConfig = {
@@ -19,7 +18,6 @@ export const districtListView: ListViewConfig = {
     titleTableCell(),
     languageTableCell(),
     lastChangesTableCell(),
-    lastSyncTableCell(true, 'Detail.{language}.Title'),
     sourceTableCell(),
     {
       title: 'Source state',
