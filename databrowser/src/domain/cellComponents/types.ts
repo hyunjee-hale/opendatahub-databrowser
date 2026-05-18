@@ -5,6 +5,7 @@
 export enum CellComponent {
   AdditionalPropertiesCell = 'AdditionalPropertiesCell',
   ArrayCell = 'ArrayCell',
+  ConcatCell = 'ConcatCell',
   ArrayEditableCell = 'ArrayEditableCell',
   ArrayLookupCell = 'ArrayLookupCell',
   ArrayTagsCell = 'ArrayTagsCell',
@@ -52,6 +53,7 @@ export enum CellComponent {
   StringCell = 'StringCell',
   TagReferenceCell = 'TagReferenceCell',
   UrlCell = 'UrlCell',
+  VenueRoomDetailsCell = 'VenueRoomDetailsCell',
   StringTemplateCell = 'StringTemplateCell',
   TextAreaCell = 'TextAreaCell',
   ToggleCell = 'ToggleCell',

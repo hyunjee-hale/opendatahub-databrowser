@@ -9,7 +9,7 @@ import {
   imageTableCell,
   languageTableCell,
   lastChangesTableCell,
-  locationTableCellsMinimal,
+  locationTableCellsAll,
   publishedOnTableCell,
   pushDataTableCell,
   sourceTableCell,
@@ -45,7 +45,7 @@ export const odhActivityPoiListView: ListViewConfig = {
     //     separator: ', ',
     //   },
     // },
-    ...locationTableCellsMinimal(),
+    ...locationTableCellsAll({showRegion: false, showTourismAssociation: false, showMunicipality: true, showDistrict: true}),
     lastSyncTableCell(true, 'Detail.{language}.Title'),
     gpsDataShortTableCell(),
     {
