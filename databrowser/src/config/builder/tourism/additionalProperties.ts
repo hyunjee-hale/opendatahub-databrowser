@@ -11,6 +11,7 @@ import { poiltsdataCategory } from './additionalproperties/poiltsdata';
 import { gastronomyltsdataCategory } from './additionalproperties/gastronomyltsdata';
 import { suedtirolweincompanydataCategory } from './additionalproperties/suedtirolweincompanydata';
 import { siagmuseumdataCategory } from './additionalproperties/siagmuseumdata';
+import { stavendingpointdataCategory } from './additionalproperties/stavendingpointdata';
 import { roadIncidentdataCategory } from './roadIncident';
 import { eventeuracnoidataCategory } from './additionalproperties/eventeuracnoidata';
 
@@ -59,6 +60,10 @@ export const additionalPropertiesCategory = (): EditElements => ({
     {
       objectPath: 'AdditionalProperties.SiagMuseumDataProperties',
       elements: siagmuseumdataCategory(),
+    },
+    {
+      objectPath: 'AdditionalProperties.StaVendingPointsDataProperties',
+      elements: stavendingpointdataCategory(),
     },
     {
       objectPath: 'AdditionalProperties.RoadIncidentProperties',
