@@ -5,7 +5,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
 <template>
+  <div v-if="venueIds.length === 0" class="text-sm text-gray-500 italic">
+    No venue assigned. Please assign a venue first to select rooms.
+  </div>
   <TagReferenceCell
+    v-else
     :items="props.items"
     :url="venueRoomUrl"
     key-selector="RoomDetails\.[0]\.Id"

@@ -23,17 +23,12 @@ export const dataStatesSubCategory = (
     name: 'Data states',
     properties: [
       lastChangesCell(),
-      publishedOnCell(),
       {
-        title: 'Active on Source',
+        title: 'Active',
         component: CellComponent.ToggleTriStateCell,
         objectMapping: { enabled: 'Active' },
-      },
-      // {
-      //   title: 'Active on Open Data Hub',
-      //   component: CellComponent.ToggleTriStateCell,
-      //   objectMapping: { enabled: 'SmgActive' },
-      // },
+      },      
+      publishedOnCell(),
     ],
   };
 

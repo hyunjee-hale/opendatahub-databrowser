@@ -7,7 +7,7 @@ import {
   PropertyConfig,
   SubCategoryElement,
 } from '../../../domain/datasets/config/types';
-import { logoWithMainImageCells } from './image';
+import { mainImageCell } from './image';
 
 export const shortnameCell = (options?: {
   required?: boolean;
@@ -21,5 +21,5 @@ export const shortnameCell = (options?: {
 export const shortnameWithLogoAndMainImageSubCategory =
   (): SubCategoryElement => ({
     name: 'General data',
-    properties: [shortnameCell(), ...logoWithMainImageCells()],
+    properties: [shortnameCell(), mainImageCell()],
   });
