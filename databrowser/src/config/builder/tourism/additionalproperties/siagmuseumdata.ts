@@ -16,10 +16,24 @@ export const siagmuseumdataCategory = (
       name: '',
       properties: [
         {
-          title: 'Test',
+          title: 'OpeningTimes',
           component: CellComponent.StringCell,
           objectMapping: {
-            text: 'AdditionalProperties.SiagMuseumDataProperties.Test',
+            text: 'AdditionalProperties.SiagMuseumDataProperties.OpeningTimes.{language}',
+          },
+        },
+        {
+          title: 'Entry',
+          component: CellComponent.StringCell,
+          objectMapping: {
+            text: 'AdditionalProperties.SiagMuseumDataProperties.Entry.{language}',
+          },
+        },
+        {
+          title: 'Supporter',
+          component: CellComponent.StringCell,
+          objectMapping: {
+            text: 'AdditionalProperties.SiagMuseumDataProperties.Supporter.{language}',
           },
         },
       ],
