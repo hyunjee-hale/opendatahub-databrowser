@@ -4,6 +4,7 @@
 
 import { CellComponent } from '../../../domain/cellComponents/types';
 import { DetailElements } from '../../../domain/datasets/config/types';
+import { logoCell } from './image';
 
 export const contactCategory = (): DetailElements => ({
   name: 'Contact',
@@ -97,6 +98,7 @@ export const contactCategory = (): DetailElements => ({
           component: CellComponent.UrlCell,
           objectMapping: { text: 'ContactInfos.{language}.LogoUrl' },
         },
+        logoCell(),
       ],
     },
   ],

@@ -12,7 +12,7 @@ import {
   dataStatesSubCategory,
   gpsDataCategory,
   imageGalleryCategory,
-  odhTagCategory,
+  eventDocumentCategory,
   shortnameWithLogoAndMainImageSubCategory,
   sourceSubCategoryWithDistinct,
   textInfoCategory,
@@ -26,6 +26,8 @@ import {
   eventDateCategory,
 } from '../../builder/tourism';
 import { updatehistoryCategory } from '../../builder/tourism/updatehistory';
+import { additionalPropertiesCategory } from '../../builder/tourism/additionalProperties';
+import { videoItemsCategory } from '../../builder/tourism/video';
 
 export const eventSharedView = (): DetailViewConfig | EditViewConfig => ({
   elements: [
@@ -33,23 +35,23 @@ export const eventSharedView = (): DetailViewConfig | EditViewConfig => ({
       name: 'Main data',
       slug: 'main-data',
       subcategories: [
-        shortnameWithLogoAndMainImageSubCategory(),
         {
           name: 'IDs',
           properties: [idReadOnlyCell()],
         },
-        dataStatesSubCategory(),
         sourceSubCategoryWithDistinct('event'),
+        shortnameWithLogoAndMainImageSubCategory(),        
+        dataStatesSubCategory(),        
       ],
     },
     textInfoCategory(),
     eventAdditionalCategory(),
     imageGalleryCategory(),
-    eventDateCategory(),
+    eventDateCategory(),   
     eventPropertiesCategory(),
     contactCategory(),
     {
-      name: 'Organizer details',
+      name: 'Organizer',
       slug: 'Organizer-details',
       subcategories: [
         {
@@ -119,10 +121,12 @@ export const eventSharedView = (): DetailViewConfig | EditViewConfig => ({
         },
       ],
     },
+    additionalPropertiesCategory(),
     locationCategory(),
     gpsDataCategory(),
-    tagCategory('event'),
-    odhTagCategory('event'),
+    tagCategory('event', { withSourceFilter: true }),
+    videoItemsCategory(),
+    eventDocumentCategory(),
     licenseInfoCategory(),
     mappingCategory(),
     {

@@ -12,20 +12,14 @@ import {
   lastChangesTableCell,
   publishedOnTableCell,
   pushDataTableCell,
-  locationTableCellsMinimal,
+  locationTableCellsAll,
 } from '../../builder/tourism';
 
 export const venueListView: ListViewConfig = {
   elements: [
     titleTableCell(),
-    imageTableCell(),
-    {
-      title: 'Category',
-      component: CellComponent.StringCell,
-      class: 'w-60',
-      objectMapping: { text: 'VenueCategory.0.VenueCode' },
-    },
-    ...locationTableCellsMinimal(),
+    imageTableCell(),    
+    ...locationTableCellsAll({showRegion: false, showTourismAssociation: false, showMunicipality: true, showDistrict: true}),
     languageTableCell(),
     lastChangesTableCell(),
     sourceTableCell(),
