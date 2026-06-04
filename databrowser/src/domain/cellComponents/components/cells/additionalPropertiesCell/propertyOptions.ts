@@ -10,6 +10,7 @@ import { activityltsdataCategory } from '@/config/builder/tourism/additionalprop
 import { gastronomyltsdataCategory } from '@/config/builder/tourism/additionalproperties/gastronomyltsdata';
 import { suedtirolweincompanydataCategory } from '@/config/builder/tourism/additionalproperties/suedtirolweincompanydata';
 import { siagmuseumdataCategory } from '@/config/builder/tourism/additionalproperties/siagmuseumdata';
+import { stavendingpointdataCategory } from '@/config/builder/tourism/additionalproperties/stavendingpointdata';
 import { eventeuracnoidataCategory } from '@/config/builder/tourism/additionalproperties/eventeuracnoidata';
 import { AdditionalProperty } from './types';
 
@@ -22,6 +23,7 @@ const { name: activityltsname, slug: activityltsslug } = activityltsdataCategory
 const { name: gastronomyltsname, slug: gastronomyltsslug } = gastronomyltsdataCategory();
 const { name: suedtirolweincompanyname, slug: suedtirolweincompanyslug } = suedtirolweincompanydataCategory();
 const { name: siagmuseumname, slug: siagmuseumslug } = siagmuseumdataCategory();
+const { name: stavendingpointname, slug: stavendingpointslug } = stavendingpointdataCategory();
 
 const { name: eventeuracnoiname, slug: eventeuracnoislug } = eventeuracnoidataCategory();
 
@@ -65,6 +67,11 @@ export const availableAdditionalPropertiesOptions: AdditionalPropertiesOptions[]
       label: siagmuseumname,
       value: 'AdditionalProperties.SiagMuseumDataProperties',
       slug: siagmuseumslug,
+    },
+    {
+      label: stavendingpointname,
+      value: 'AdditionalProperties.StaVendingPointsDataProperties',
+      slug: stavendingpointslug,
     },
     {
       label: eventeuracnoiname,

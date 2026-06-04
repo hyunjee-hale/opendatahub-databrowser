@@ -56,6 +56,7 @@ import StringCell from '../components/cells/stringCell/StringCell.vue';
 import StringTemplateCell from '../components/cells/stringTemplateCell/StringTemplateCell.vue';
 import SyncDataConfigCell from '../components/cells/syncDataConfigCell/SyncDataConfigCell.vue';
 import TagReferenceCell from '../components/cells/tagReferenceCell/TagReferenceCell.vue';
+import TagReferenceCellSourceFiltered from '../components/cells/tagReferenceCell/TagReferenceCellSourceFiltered.vue';
 import TextAreaCell from '../components/cells/textAreaCell/TextAreaCell.vue';
 import ToggleButtonCell from '../components/cells/toggleCell/ToggleButtonCell.vue';
 import ToggleCell from '../components/cells/toggleCell/ToggleCell.vue';
@@ -230,6 +231,11 @@ export const registeredComponents: readonly RegisteredComponent[] = [
   [
     CellComponent.TagReferenceCell,
     TagReferenceCell,
+    { supportsTableView: false },
+  ],
+  [
+    CellComponent.TagReferenceCellSourceFiltered,
+    TagReferenceCellSourceFiltered,
     { supportsTableView: false },
   ],
   [CellComponent.TextAreaCell, TextAreaCell, { supportsTableView: true }],

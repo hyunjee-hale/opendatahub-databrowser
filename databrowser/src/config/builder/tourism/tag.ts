@@ -9,7 +9,10 @@ import {
 } from '../../../domain/datasets/config/types';
 import { withOdhBaseUrl } from '../../utils';
 
-export const tagCell = (mainentity?: string): PropertyConfig => {
+export const tagCell = (
+  mainentity?: string,
+  options?: { withSourceFilter?: boolean }
+): PropertyConfig => {
   const filterParam =
     mainentity == null
       ? ''
@@ -18,28 +21,33 @@ export const tagCell = (mainentity?: string): PropertyConfig => {
 
   return {
     title: 'Assigned Tags',
-    component: CellComponent.TagReferenceCell,
+    component: options?.withSourceFilter
+      ? CellComponent.TagReferenceCellSourceFiltered
+      : CellComponent.TagReferenceCell,
     arrayMapping: {
       targetPropertyName: 'items',
       pathToParent: 'TagIds',
     },
-    params: { 
-      url, 
-      keySelector: 'Id', 
+    params: {
+      url,
+      keySelector: 'Id',
       labelSelector: 'TagName.{language}',
       showAdditionalData: 'true',
     },
   };
 };
 
-export const tagCategory = (mainentity?: string): DetailElements => {
+export const tagCategory = (
+  mainentity?: string,
+  options?: { withSourceFilter?: boolean }
+): DetailElements => {
   return {
     name: 'Tags',
     slug: 'Tags',
     subcategories: [
       {
         name: '',
-        properties: [tagCell(mainentity)],
+        properties: [tagCell(mainentity, options)],
       },
     ],
   };
