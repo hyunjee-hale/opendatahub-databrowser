@@ -7,7 +7,6 @@ import {
   imageTableCell,
   languageTableCell,
   lastChangesTableCell,
-  lastSyncTableCell,
   logoTableCell,
   publishedOnTableCell,
   pushDataTableCell,
@@ -25,6 +24,5 @@ export const skiAreaListView: ListViewConfig = {
     sourceTableCell(),
     publishedOnTableCell(),
     pushDataTableCell(),
-    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };

@@ -4,7 +4,7 @@
 
 import { CellComponent } from '../../../domain/cellComponents/types';
 import { ListViewConfig } from '../../../domain/datasets/config/types';
-import { lastChangesTableCell, lastSyncTableCell } from '../../builder/tourism';
+import { lastChangesTableCell } from '../../builder/tourism';
 
 export const publishedOnListView: ListViewConfig = {
   elements: [
@@ -27,6 +27,5 @@ export const publishedOnListView: ListViewConfig = {
       objectMapping: { text: 'Url' },
     },
     lastChangesTableCell(),
-    lastSyncTableCell(true, 'Name.{language}'),
   ],
 };
