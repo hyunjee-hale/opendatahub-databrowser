@@ -13,6 +13,7 @@ import {
   sourceTableCell,
   titleTableCell,
   locationTableCellsMerged,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 import { DEFAULT_DATE_TIME_FORMAT } from '../../utils';
 
@@ -50,6 +51,7 @@ export const eventListView: ListViewConfig = {
     },
     languageTableCell(),
     lastChangesTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
     sourceTableCell(),
     {
       title: 'Source state',

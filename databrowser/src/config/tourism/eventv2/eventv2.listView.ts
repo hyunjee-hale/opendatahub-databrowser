@@ -8,6 +8,7 @@ import {
   imageTableCell,
   languageTableCell,
   lastChangesTableCell,
+  lastSyncTableCell,
   publishedOnTableCell,
   pushDataTableCell,
   sourceTableCell,
@@ -54,5 +55,6 @@ export const eventv2ListView: ListViewConfig = {
     },
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };

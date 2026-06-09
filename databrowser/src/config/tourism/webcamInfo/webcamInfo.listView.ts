@@ -11,6 +11,7 @@ import {
   sourceTableCell,
   publishedOnTableCell,
   pushDataTableCell,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const webcamInfoListView: ListViewConfig = {
@@ -37,5 +38,6 @@ export const webcamInfoListView: ListViewConfig = {
     sourceTableCell(),
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };
