@@ -5,12 +5,13 @@
 import { CellComponent } from '../../../domain/cellComponents/types';
 import { ListViewConfig } from '../../../domain/datasets/config/types';
 import {
-  gpsDataTableCell,
+  gpsDataShortTableCell,
   imageTableCell,
   lastChangesTableCell,
   sourceTableCell,
   publishedOnTableCell,
   pushDataTableCell,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const webcamInfoListView: ListViewConfig = {
@@ -32,10 +33,11 @@ export const webcamInfoListView: ListViewConfig = {
         text: 'WebCamProperties.WebcamUrl',
       },
     },
-    gpsDataTableCell(),
+    gpsDataShortTableCell(),
     lastChangesTableCell(),
     sourceTableCell(),
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };

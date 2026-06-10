@@ -7,6 +7,7 @@ import { ListViewConfig } from '../../../domain/datasets/config/types';
 import {
   languageTableCell,
   lastChangesTableCell,
+  lastSyncTableCell,
   sourceTableCell,
 } from '../../builder/tourism';
 import { geoDataTableCell } from '../../builder/tourism/geoData';
@@ -67,6 +68,7 @@ export const announcementListView: ListViewConfig = {
     geoDataTableCell(),
     languageTableCell(),
     lastChangesTableCell(),
+    lastSyncTableCell(true, 'Id'),
     sourceTableCell(),
     {
       title: 'Source state',

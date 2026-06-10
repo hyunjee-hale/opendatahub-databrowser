@@ -35,7 +35,10 @@ export const syncdataconfigCategory = (): DetailElements => ({
 });
 
 
-export const lastSyncTableCell = (hasAction:boolean = true) : PropertyConfig => ({
+export const lastSyncTableCell = (
+  hasAction: boolean = true,
+  textPath: string = 'AccoDetail.{language}.Name'
+): PropertyConfig => ({
   title: 'Last Sync',
   component: CellComponent.LastSyncCell,
   class: 'w-48',
@@ -44,7 +47,7 @@ export const lastSyncTableCell = (hasAction:boolean = true) : PropertyConfig => 
     date: '_Meta.LastUpdate',
     type: '_Meta.Type',
     source: 'Source',
-    text: 'AccoDetail.{language}.Name'
+    text: textPath
   },
   params: {
     format: DEFAULT_DATE_TIME_FORMAT,

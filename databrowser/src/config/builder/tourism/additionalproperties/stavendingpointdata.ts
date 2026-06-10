@@ -11,9 +11,9 @@ export const stavendingpointdataCategory = (
   name: 'VendingPoint Properties',
   slug: 'stavendingpointdata',
   visible: options.visible,
-  subcategories: [
+  subcategories: [    
     {
-      name: '',
+      name: 'General',
       properties: [
         {
           title: 'Has Website',
@@ -21,21 +21,7 @@ export const stavendingpointdataCategory = (
           objectMapping: {
             enabled: 'AdditionalProperties.StaVendingPointsDataProperties.HasWebsite',
           },
-        },
-        {
-          title: 'Suedtirol PassServices',
-          component: CellComponent.ToggleTriStateCell,
-          objectMapping: {
-            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.SuedtirolPassServices',
-          },
-        },
-        {
-          title: 'Suedtirolpass Over 65 apply',
-          component: CellComponent.ToggleTriStateCell,
-          objectMapping: {
-            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.SuedtirolpassOver65apply',
-          },
-        },
+        },        
         {
           title: 'Duplicate',
           component: CellComponent.ToggleTriStateCell,
@@ -44,40 +30,141 @@ export const stavendingpointdataCategory = (
           },
         },
         {
-          title: 'Charge Card',
+          title: 'InfoPoint',
           component: CellComponent.ToggleTriStateCell,
           objectMapping: {
-            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ChargeCard',
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.InfoPoint',
+          },
+        },        
+      ],
+    },
+    {
+      name: 'Services',
+      properties: [
+        {
+          title: 'suedtirolmobil Flex Services (Top-up, Renewal and Activation)',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceFlex',
           },
         },
         {
-          title: 'City Card Bus',
+          title: 'suedtirolmobil FlexFamily Services',
           component: CellComponent.ToggleTriStateCell,
           objectMapping: {
-            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.CityCardBus',
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceFlexFamily',
           },
         },
         {
-          title: 'Mobile Card',
+          title: 'suedtirolmobil Fix365 Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceFix365',
+          },
+        },
+        {
+          title: 'suedtirolmobil Fix30 Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceFix30',
+          },
+        },
+        {
+          title: 'Euregio Ticket Students Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceEuregioTicketStudent',
+          },
+        },
+        {
+          title: 'Euregio Ticket Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceEuregioTicket',
+          },
+        },
+        {
+          title: 'suedtirolmobil U19 Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceU19',
+          },
+        },
+        {
+          title: 'suedtirolmobil U26 Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceU26',
+          },
+        },
+        {
+          title: 'suetirolmobil Fix30 U26 Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ServiceFix30U26',
+          },
+        },
+        {
+          title: 'suedtirolmobil 65+ Services',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.Service65Plus',
+          },
+        },
+      ],
+    },
+    {
+      name: 'Sales',
+      properties: [
+        {
+          title: 'Sale MobileCard',
           component: CellComponent.ToggleTriStateCell,
           objectMapping: {
             enabled: 'AdditionalProperties.StaVendingPointsDataProperties.MobileCard',
           },
         },
         {
-          title: 'Bike Mobile Card',
+          title: 'Sale of single tickets 2 Euro',
           component: CellComponent.ToggleTriStateCell,
           objectMapping: {
-            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.BikeMobileCard',
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.SingleTicket',
           },
         },
         {
-          title: 'Museum Mobile Card',
+          title: 'Sale of day passes for city buses (Bolzano or Merano)',
           component: CellComponent.ToggleTriStateCell,
           objectMapping: {
-            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.MuseumMobileCard',
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.DailyTicketBzMe',
           },
         },
+        {
+          title: 'Sale of tickets for transporting animals',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.TicketAnimals',
+          },
+        },
+        {
+          title: 'Sale of tickets for transporting bicycles',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.TicketBicycle',
+          },
+        },
+        {
+          title: 'Sale of tickets for a specific route',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.TicketSpecificRoute',
+          },
+        },
+        {
+          title: 'Sale of Euregio 2 Plus tickets',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.TicketEuregio2Plus',
+          },
+        },        
       ],
     },
   ],

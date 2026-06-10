@@ -5,12 +5,13 @@
 import { CellComponent } from '../../../domain/cellComponents/types';
 import { ListViewConfig } from '../../../domain/datasets/config/types';
 import {
-  gpsDataTableCell,
+  gpsDataShortTableCell,
   lastChangesTableCell,
   odhActiveTableCell,
   sourceTableCell,
   publishedOnTableCell,
   pushDataTableCell,
+  lastSyncTableCell,
 } from '../../builder/tourism';
 
 export const measuringPointListView: ListViewConfig = {
@@ -55,11 +56,12 @@ export const measuringPointListView: ListViewConfig = {
         text: 'Temperature',
       },
     },
-    gpsDataTableCell(),
+    gpsDataShortTableCell(),
     lastChangesTableCell(),
     sourceTableCell(),
     odhActiveTableCell(),
     publishedOnTableCell(),
     pushDataTableCell(),
+    lastSyncTableCell(true, 'Detail.{language}.Title'),
   ],
 };
