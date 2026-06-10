@@ -13,7 +13,6 @@ import { accommodationTypesConfig } from './accommodationTypes/accommodationType
 import { articleConfig } from './article/article.config';
 import { districtConfig } from './district/district.config';
 import { eventConfig } from './event/event.config';
-import { eventv2Config } from './eventv2/eventv2.config';
 import { eventShortConfig } from './eventShort/eventShort.config';
 import { eventTopicsConfig } from './eventTopics/eventTopics.config';
 import { experienceAreaConfig } from './experienceArea/experienceArea.config';
@@ -36,7 +35,6 @@ import { snowReportConfig } from './snowReport/snowReport.config';
 import { sourceConfig } from './source/source.config';
 import { tourismAssociationConfig } from './tourismAssociation/tourismAssociation.config';
 import { venueConfig } from './venue/venue.config';
-import { venuev2Config } from './venuev2/venuev2.config';
 import { weatherConfig } from './weather/weather.config';
 import { weatherDistrictConfig } from './weatherDistrict/weatherDistrict.config';
 import { weatherInfoConfig } from './weatherInfo/weatherInfo.config';
@@ -61,7 +59,6 @@ export const tourismEmbeddedDatasetConfigs = [
   weatherForecastConfig,
   gastronomyConfig,
   venueConfig,
-  venuev2Config,
   weatherInfoConfig,
   municipalityConfig,
   districtConfig,
@@ -78,7 +75,6 @@ export const tourismEmbeddedDatasetConfigs = [
   measuringPointConfig,
   snowReportConfig,
   eventConfig,
-  eventv2Config,
   experienceAreaConfig,
   metaDataConfig,
   publishedOnConfig,
