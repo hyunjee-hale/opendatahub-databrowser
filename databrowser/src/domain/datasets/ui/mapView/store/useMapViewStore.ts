@@ -138,7 +138,7 @@ export const useMapViewStore = defineStore('mapViewStore', {
         const axiosInstance = await axiosWithMaybeAuth(true, apiType);
 
         // Pass ["Geo"] to additionalFields to make best effort in order to detect "new" standrdized geo fields
-        const fetchUrl = getDatasetUrl(dataset.api, ["Geo"]);
+        const fetchUrl = getDatasetUrl(dataset.api, ['Geo']);
         const responseData = await axiosInstance.get<unknown>(fetchUrl);
 
         const records = unwrapData<unknown[]>(responseData.data);

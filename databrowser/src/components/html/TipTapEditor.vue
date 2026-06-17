@@ -8,7 +8,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <template>
   <div
     v-if="editor"
-    class="rounded border border-gray-400 text-black focus-within:border-green-500"
+    class="rounded-sm border border-gray-400 text-black focus-within:border-green-500"
   >
     <div class="control-group border-b border-gray-400 p-2">
       <div class="button-group flex flex-wrap gap-2">
@@ -281,8 +281,10 @@ watch(
 </script>
 
 <style>
+@reference '@/index.css';
+
 .tiptap:focus-visible {
-  @apply outline-none;
+  @apply outline-hidden;
 }
 
 .button-group button {

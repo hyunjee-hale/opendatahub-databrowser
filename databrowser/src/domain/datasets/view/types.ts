@@ -71,7 +71,6 @@ export const isSingleRecordViewConfig = (
   return view.type === 'detail' || view.type === 'edit' || view.type === 'new';
 };
 
-
 export enum DiffEditMode {
   VERTICAL = 'VERTICAL',
   HORIZONTAL = 'HORIZONTAL',
