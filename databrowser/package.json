@@ -45,7 +45,7 @@
     "pinia": "^3.0.4",
     "ramda": "^0.32.0",
     "swagger-client": "^3.37.4",
-    "uuid": "^11.1.0",
+    "uuid": "^14.0.0",
     "vue": "^3.5.35",
     "vue-cookieconsent": "^0.0.11",
     "vue-draggable-next": "^2.3.0",
