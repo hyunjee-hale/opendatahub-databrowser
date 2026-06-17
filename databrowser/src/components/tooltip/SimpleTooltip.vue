@@ -40,7 +40,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeUnmount, withDefaults, defineProps, Ref } from 'vue';
+import { ref, onBeforeUnmount, Ref } from 'vue';
 import { useFloatingUi } from '@/components/utils/useFloatingUi';
 import { Placement } from '@floating-ui/dom';
 
