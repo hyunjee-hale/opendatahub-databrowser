@@ -244,7 +244,10 @@ const isHtmlMode = ref(false);
 const editor = useEditor({
   content: props.modelValue ?? '',
   extensions: [
-    StarterKit,
+    // StarterKit v3 bundles Link and Underline; disable them here so the
+    // explicit Underline and configured Link below remain the single source
+    // (avoids duplicate-extension registration).
+    StarterKit.configure({ link: false, underline: false }),
     Underline,
     Subscript,
     Superscript,
@@ -273,7 +276,7 @@ watch(
       newValue != null &&
       newValue !== editor.value.getHTML()
     ) {
-      editor.value.commands.setContent(newValue, false);
+      editor.value.commands.setContent(newValue, { emitUpdate: false });
     }
   },
   { immediate: true }
