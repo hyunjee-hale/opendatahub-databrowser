@@ -26,8 +26,7 @@ export interface ListViewConfigWithType extends ListViewConfig, WithViewKey {
 }
 
 export interface DetailViewConfigWithType
-  extends DetailViewConfig,
-    WithViewKey {
+  extends DetailViewConfig, WithViewKey {
   type: 'detail';
 }
 
