@@ -35,7 +35,41 @@ export const stavendingpointdataCategory = (
           objectMapping: {
             enabled: 'AdditionalProperties.StaVendingPointsDataProperties.InfoPoint',
           },
+        },
+        {
+          title: 'ChargeCard',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.ChargeCard',
+          },
+        },      
+      ],
+    },
+    {
+      name: 'Pick Up Point',
+      properties: [
+        {
+          title: 'PickupPoint',
+          component: CellComponent.ToggleTriStateCell,
+          objectMapping: {
+            enabled: 'AdditionalProperties.StaVendingPointsDataProperties.PickupPoint',
+          },
         },        
+        {
+          title: 'PickupPoint Id',
+          component: CellComponent.StringCell,
+          objectMapping: {
+            text: 'AdditionalProperties.StaVendingPointsDataProperties.PickupPointId',
+          },
+        },
+        {
+          title: 'PickupPoint Index',
+          component: CellComponent.StringCell,
+          objectMapping: {
+            text: 'AdditionalProperties.StaVendingPointsDataProperties.PickupPointIndex',
+          },
+          params: { type: 'number' },
+        },    
       ],
     },
     {
