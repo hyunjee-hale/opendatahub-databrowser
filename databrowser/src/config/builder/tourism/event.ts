@@ -267,7 +267,7 @@ export const eventDateCategory = (): DetailElements => ({
   slug: 'Event-details',
   subcategories: [    
     {
-      name: 'Time and date of the Event (readonly, calculated out of Event Dates)',
+      name: 'Time and date of the Event (readonly, calculated of Event Dates min/max)',
       properties: [
         {
           title: 'Date Begin',
@@ -296,15 +296,22 @@ export const eventDateCategory = (): DetailElements => ({
       properties: [
         {
             title: '',
-            component: CellComponent.ArrayLookupCell,
+            component: CellComponent.ArrayLookupCellSourceFiltered,
             objectMapping: { items: 'VenueIds' },
             params: {
-              lookupUrl: withOdhBaseUrl('/v1/Venue?source=noi,nobis,eurac'),
+              lookupUrl: withOdhBaseUrl('/v1/Venue'),
               labelSelector: 'Detail.{language}.Title',
               keySelector: 'Id',
               unique: 'true',
               addLabel: 'Add new venue',
               showUrl: 'false',
+              noOptionsAvailableLabel: 'No venue assignment possible',
+              sourceOverrideFrom_001: 'noi',
+              sourceOverrideTo_001: 'noi,nobis,eurac',
+              sourceOverrideFrom_002: 'ebms',
+              sourceOverrideTo_002: 'noi,nobis,eurac',
+              sourceOverrideFrom_003: 'momentus',
+              sourceOverrideTo_003: 'noi,nobis,eurac',
             },
         }
       ],
