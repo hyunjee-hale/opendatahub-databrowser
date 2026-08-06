@@ -10,7 +10,8 @@ import {
 import {
   dataStatesWithInsertsSubCategory,
   gpsDataCategory,
-  idAndCustomIdCells,
+  idReadOnlyCell,
+  customIdCell,
   imageGalleryCategory,
   locationCategoryDistrict,
   odhTagCategory,
@@ -37,24 +38,20 @@ export const districtSharedView = (): DetailViewConfig | EditViewConfig => ({
         {
           name: 'IDs',
           properties: [
-            ...idAndCustomIdCells(),
+            idReadOnlyCell(),
             {
-              title: 'Siag ID',
+              title: 'Municipality Id',
               component: CellComponent.StringCell,
-              objectMapping: { text: 'SiagId' },
-            },
-            {
-              title: 'HGV ID',
-              component: CellComponent.StringCell,
-              objectMapping: { text: 'hgv.id' },
-            },
+              objectMapping: { text: 'MunicipalityId' },
+              class: 'break-all',
+            },            
             {
               title: 'Tourismverein Id',
               component: CellComponent.StringCell,
               objectMapping: { text: 'TourismvereinId' },
               class: 'break-all',
             },
-            regionIdCell('RegionId'),
+            regionIdCell('RegionId'),            
           ],
         },
         {
@@ -87,6 +84,28 @@ export const districtSharedView = (): DetailViewConfig | EditViewConfig => ({
     odhTagCategory(),
     licenseInfoCategory(),
     mappingCategory(),
+    {
+      name: 'Other',
+      slug: 'other',
+      subcategories: [
+        {
+          name: 'Various Ids',
+          properties: [
+            customIdCell(),
+            {
+              title: 'Siag ID',
+              component: CellComponent.StringCell,
+              objectMapping: { text: 'SiagId' },
+            },
+            {
+              title: 'HGV ID',
+              component: CellComponent.StringCell,
+              objectMapping: { text: 'hgv.id' },
+            },
+          ],
+        },
+      ],
+    },
     updatehistoryCategory(),
   ],
 });
