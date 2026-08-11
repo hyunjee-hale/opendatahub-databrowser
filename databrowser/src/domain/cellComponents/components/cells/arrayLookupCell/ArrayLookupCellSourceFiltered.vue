@@ -14,6 +14,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     :add-label="addLabel"
     :show-url="showUrl"
     :no-options-available-label="noOptionsAvailableLabel"
+    :enabled="source != null"
+    :disabled-label="disabledLabel"
   />
 </template>
 
@@ -31,6 +33,7 @@ const props = defineProps<{
   addLabel?: string;
   showUrl?: boolean | string;
   noOptionsAvailableLabel?: string;
+  disabledLabel?: string;
 }>();
 
 const editStore = useEditStore();

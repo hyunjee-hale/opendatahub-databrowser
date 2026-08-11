@@ -14,13 +14,15 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         :error="error"
       />
       <ArrayLookupTable
-        v-if="isSuccess"
+        v-if="isSuccess || !enabledValue"
         :options="options"
         :items="items"
         :unique="enableUniqueValue"
         :add-label="props.addLabel"
         :show-url="booleanOrStringToBoolean(props.showUrl, true)"
         :no-options-available-label="props.noOptionsAvailableLabel"
+        :enabled="enabledValue"
+        :disabled-label="props.disabledLabel"
       />
     </template>
   </EditListCell>
@@ -45,6 +47,8 @@ const props = withDefaults(
     addLabel?: string;
     showUrl?: boolean | string;
     noOptionsAvailableLabel?: string;
+    enabled?: boolean | string;
+    disabledLabel?: string;
   }>(),
   {
     items: () => [],
@@ -52,11 +56,17 @@ const props = withDefaults(
     addLabel: 'Add new item',
     showUrl: true,
     noOptionsAvailableLabel: 'No items are available for assignment',
+    enabled: true,
+    disabledLabel: 'No items are available for assignment, choose a source first',
   }
 );
 
 const enableUniqueValue = computed(() =>
   booleanOrStringToBoolean(props.unique, false)
+);
+
+const enabledValue = computed(() =>
+  booleanOrStringToBoolean(props.enabled, true)
 );
 
 const { lookupUrl, keySelector, labelSelector } = toRefs(props);
@@ -89,6 +99,7 @@ const { options, error, isLoading, isSuccess, isError } =
   useRemoteSelectOptionsWithMapper(
     lookupUrl,
     true,
-    optionMapper(keySelector, labelSelector)
+    optionMapper(keySelector, labelSelector),
+    enabledValue
   );
 </script>

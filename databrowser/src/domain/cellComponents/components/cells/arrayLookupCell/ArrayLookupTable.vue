@@ -35,14 +35,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </template>
     <template #noItems>
       {{
-        options.length > 0
-          ? 'No items have been defined yet'
-          : noOptionsAvailableLabel
+        !enabled
+          ? disabledLabel
+          : options.length > 0
+            ? 'No items have been defined yet'
+            : noOptionsAvailableLabel
       }}
     </template>
     <template #addItems>
       <EditListAddButton
-        v-if="options.length > 0"
+        v-if="enabled && options.length > 0"
         :text="addLabel"
         @click="addItems([options[0].value])"
       />
@@ -70,12 +72,16 @@ const props = withDefaults(
     addLabel?: string;
     showUrl?: boolean;
     noOptionsAvailableLabel?: string;
+    enabled?: boolean;
+    disabledLabel?: string;
   }>(),
   {
     unique: false,
     addLabel: 'Add new item',
     showUrl: true,
     noOptionsAvailableLabel: 'No items are available for assignment',
+    enabled: true,
+    disabledLabel: 'No items are available for assignment, choose a source first',
   }
 );
 
